@@ -1,6 +1,7 @@
 package org.lessons.java.exception.books;
 
-import java.sql.SQLOutput;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Main {
             System.out.println("Editore: ");
             String editor = scanner.nextLine();
             try {
-            books[i] = new Book(title, pages,author, editor);
+            books[i] = new Book(title, pages, author, editor);
             i++; }
             catch(EmptyStringException e) {
                 System.out.println(e);
@@ -33,5 +34,28 @@ public class Main {
 
         }
         System.out.println(Arrays.toString(books));
+
+        File bookFile = new File("./books.txt");
+        try {
+            FileWriter write = new FileWriter(bookFile);
+            for (int y = 0; y < books.length; y++) {
+                Book book = books[y];
+                write.write(book.toString());
+                write.write("\n");
+            }
+            write.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+        Scanner myScanner = new Scanner(bookFile);
+        while (myScanner.hasNextLine()) {
+            String line = myScanner.nextLine();
+            System.out.println(line);
+        }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
