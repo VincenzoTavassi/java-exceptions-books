@@ -26,10 +26,10 @@ public class Main {
             books[i] = new Book(title, pages, author, editor);
             i++; }
             catch(EmptyStringException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
             catch (MustHavePagesException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
 
         }
@@ -40,8 +40,7 @@ public class Main {
             FileWriter write = new FileWriter(bookFile);
             for (int y = 0; y < books.length; y++) {
                 Book book = books[y];
-                write.write(book.toString());
-                write.write("\n");
+                write.write(book.toString() + "\n");
             }
             write.close();
         } catch (Exception e) {
@@ -55,7 +54,7 @@ public class Main {
             System.out.println(line);
         }
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 }
