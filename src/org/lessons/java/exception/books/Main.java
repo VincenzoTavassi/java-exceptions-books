@@ -35,7 +35,7 @@ public class Main {
         }
         System.out.println(Arrays.toString(books));
 
-        // BONUS
+        // BONUS -
         File bookFile = new File("./books.txt");
         try {
             FileWriter write = new FileWriter(bookFile);
