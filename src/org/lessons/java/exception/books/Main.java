@@ -35,11 +35,11 @@ public class Main {
         }
         System.out.println(Arrays.toString(books));
 
+        // BONUS
         File bookFile = new File("./books.txt");
         try {
             FileWriter write = new FileWriter(bookFile);
-            for (int y = 0; y < books.length; y++) {
-                Book book = books[y];
+            for (Book book : books) {
                 write.write(book.toString() + "\n");
             }
             write.close();
