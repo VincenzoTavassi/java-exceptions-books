@@ -48,4 +48,14 @@ public class Book {
         if (editor != null && !editor.isBlank()) this.editor = editor;
         else throw new EmptyStringException("The book editor must not be null");
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", pages=" + pages +
+                ", author='" + author + '\'' +
+                ", editor='" + editor + '\'' +
+                '}';
+    }
 }
